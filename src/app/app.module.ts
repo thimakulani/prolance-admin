@@ -23,6 +23,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NavComponent } from './nav/nav.component';
 import { MatListModule } from '@angular/material/list';
+import { AddCategoryDlgComponent } from './add-category-dlg/add-category-dlg.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFireModule} from "@angular/fire/compat";
+import {config} from "rxjs";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -33,7 +41,8 @@ import { MatListModule } from '@angular/material/list';
     ProfileComponent,
     QueriesComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    AddCategoryDlgComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,12 @@ import { MatListModule } from '@angular/material/list';
     MatCardModule,
     MatMenuModule,
     LayoutModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

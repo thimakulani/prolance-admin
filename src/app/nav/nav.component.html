@@ -1,0 +1,38 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+
+    <img class="avatar mat-elevation-z8" src="https://th.bing.com/th/id/R.cd535f499ae47107303992e92c361c59?rik=vQSe87T%2f4xiPbQ&pid=ImgRaw&r=0"  alt=""/>
+
+    <h4 class="name">Thima Sigauque</h4>
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a class="menu-links" routerLinkActive="active" mat-list-item routerLink="/home">DASHBOARD</a>
+      <a class="menu-links" mat-list-item routerLink="/categories">CATEGORIES</a>
+      <a class="menu-links" mat-list-item routerLink="/services">SERVICES</a>
+      <a class="menu-links" mat-list-item routerLink="/users">USERS</a>
+      <a class="menu-links" mat-list-item routerLink="/profile">PROFILE</a>
+      <a class="menu-links" mat-list-item routerLink="/queries">QUERIES</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>prolance-admin</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="sidenav-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
